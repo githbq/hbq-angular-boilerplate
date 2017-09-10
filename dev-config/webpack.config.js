@@ -7,7 +7,6 @@ for (let key of Object.keys(configs)) {
         configs[key] = configs[key].index
     }
 }
-console.log(`----------------------------`, configs)
 const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = configs.constants
 
 //设置开发时源代码映射工具
