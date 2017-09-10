@@ -1,7 +1,7 @@
 {
-    "name": "angular-starter",
-    "version": "6.0.0",
-    "description": "An Angular Webpack Starter kit featuring Angular (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
+    "name": "hbq-angular-boilerplate",
+    "version": "1.0.0",
+    "description": "一个完整的angular4开发模板项目",
     "keywords": [
         "angular",
         "angular2",
@@ -9,9 +9,12 @@
         "webpack",
         "typescript"
     ],
-    "author": "Patrick Stapleton <patrick@angularclass.com>",
-    "homepage": "https://github.com/AngularClass/angular-starter",
-    "license": "MIT",
+    "scripts": {
+        "start": "better-npm-run start",
+        "tsc": "tsc",
+        "lint": "tslint \"src/**/*.ts\"",
+        "tree:dir": "treee -l 2 --ignore node_modules/,.git/"
+    },
     "betterScripts": {
         "start": {
             "command": "better-npm-run remove && better-npm-run dev"
@@ -26,10 +29,6 @@
                 "IS_PROXY": true
             }
         }
-    },
-    "scripts": {
-        "start": "better-npm-run start",
-        "tsc": "tsc"
     },
     "dependencies": {
         "@angular/animations": "~4.3.1",
@@ -107,6 +106,7 @@
         "string-replace-loader": "~1.3.0",
         "style-loader": "^0.18.1",
         "to-string-loader": "^1.1.5",
+        "tree-cli": "^0.4.12",
         "ts-node": "^3.3.0",
         "tslib": "^1.7.1",
         "tslint": "~4.5.1",
@@ -121,11 +121,11 @@
         "webpack-dll-bundles-plugin": "^1.0.0-beta.5",
         "webpack-merge": "~4.1.0"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/AngularClass/angular-starter.git"
-    },
+    "repository": "https://github.com/githbq/hbq-angular-boilerplate.git",
     "engines": {
         "node": ">=8.4"
-    }
+    },
+    "author": "hubiqing",
+    "homepage": "https://github.com/githbq/hbq-angular-boilerplate.git",
+    "license": "MIT"
 }

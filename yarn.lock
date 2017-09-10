@@ -738,7 +738,7 @@ bluebird@^2.10.2:
   version "2.11.0"
   resolved "https://registry.npmjs.org/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
 
-bluebird@^3.3.0, bluebird@^3.3.5, bluebird@^3.4.7:
+bluebird@^3.3.0, bluebird@^3.3.5, bluebird@^3.4.6, bluebird@^3.4.7:
   version "3.5.0"
   resolved "https://registry.npmjs.org/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
 
@@ -1049,6 +1049,10 @@ cli-color@^1.2.0:
     es6-iterator "2"
     memoizee "^0.4.3"
     timers-ext "0.1"
+
+cli-spinner@^0.2.5:
+  version "0.2.6"
+  resolved "https://registry.npmjs.org/cli-spinner/-/cli-spinner-0.2.6.tgz#8a59703324e93a908f6e601e4e74f5b85b371e5c"
 
 cliui@^2.1.0:
   version "2.1.0"
@@ -3663,6 +3667,10 @@ lodash.escape@^3.0.0:
   dependencies:
     lodash._root "^3.0.0"
 
+lodash.includes@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.npmjs.org/lodash.includes/-/lodash.includes-4.3.0.tgz#60bb98a87cb923c68ca1e51325483314849f553f"
+
 lodash.isarguments@^3.0.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz#2f573d85c6a24289ff00663b491c1d338ff3458a"
@@ -6137,6 +6145,17 @@ tough-cookie@~2.3.0:
   resolved "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.2.tgz#f081f76e4c85720e6c37a5faced737150d84072a"
   dependencies:
     punycode "^1.4.1"
+
+tree-cli@^0.4.12:
+  version "0.4.12"
+  resolved "https://registry.npmjs.org/tree-cli/-/tree-cli-0.4.12.tgz#5c3465deed4130ba4806d18a52e272dfc54d247e"
+  dependencies:
+    bluebird "^3.4.6"
+    chalk "^1.1.3"
+    cli-spinner "^0.2.5"
+    lodash.includes "^4.3.0"
+    meow "^3.7.0"
+    object-assign "^4.1.0"
 
 trim-newlines@^1.0.0:
   version "1.0.0"
