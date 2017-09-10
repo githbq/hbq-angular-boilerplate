@@ -3,22 +3,23 @@
  *
  * problem with copy-webpack-plugin
  */
-const AssetsPlugin = require('assets-webpack-plugin');
-const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
-const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
-const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
-const HtmlElementsPlugin = require('../../html-elements-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const ngcWebpack = require('ngc-webpack');
-const CompressionPlugin = require('compression-webpack-plugin');
-//const PreloadWebpackPlugin = require('preload-webpack-plugin');
+const AssetsPlugin = require('assets-webpack-plugin')
+const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin')
+const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
+const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin
+const HtmlElementsPlugin = require('../../html-elements-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+const ngcWebpack = require('ngc-webpack')
+const CompressionPlugin = require('compression-webpack-plugin')
+    //const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
 const helpers = require('../constants')
+const createHtmlPlugin = require('./createHtmlPlugin')
 const plugins = [
     new CompressionPlugin({
         asset: "[path].gz[query]",
@@ -132,17 +133,17 @@ const plugins = [
      *
      * See: https://github.com/ampedandwired/html-webpack-plugin
      */
-    new HtmlWebpackPlugin({
-        template: 'src/index.html',
-        title: helpers.METADATA.title,
-        chunksSortMode: function(a, b) {
-            const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"];
-            return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0]);
-        },
-        metadata: helpers.METADATA,
-        inject: 'body'
-    }),
-
+    // new HtmlWebpackPlugin({
+    //     template: 'src/index.html',
+    //     title: helpers.METADATA.title,
+    //     chunksSortMode: function(a, b) {
+    //         const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"]
+    //         return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0])
+    //     },
+    //     metadata: helpers.METADATA,
+    //     inject: 'body'
+    // }),
+    createHtmlPlugin('index'),
     /**
      * Plugin: ScriptExtHtmlWebpackPlugin
      * Description: Enhances html-webpack-plugin functionality

@@ -17,9 +17,16 @@
  const __DEV__ = NODE_ENV === 'development'
      //模板地址
  const TEMPLATE_PATH = root('./dev-config/index.template.html')
-
+ const TEMPLATE_PATH_PUG = root('dev-config/index.template.pug')
  const HMR = true
  const AOT = true
- const METADATA = { __DEV__, HMR, ENV: NODE_ENV, NODE_ENV, AOT }
+ const METADATA = {
+     __DEV__,
+     HMR,
+     ENV: NODE_ENV,
+     NODE_ENV,
+     AOT,
+     ...require('./globalConfig')
+ }
 
- module.exports = { root, METADATA, TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ }
+ module.exports = { root, METADATA, TEMPLATE_PATH_PUG, TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ }
