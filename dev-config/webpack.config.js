@@ -15,8 +15,8 @@ const jsPrefixPath = 'js'
 
 module.exports = {
     devtool: devTool,
-    devServer: configs.devServer.get(),
-    entry: configs.entry.get({ isDev: __DEV__ }),
+    devServer: configs.devServer.get({ isDev: __DEV__, isProd: !__DEV__ }),
+    entry: configs.entry.get({ isDev: __DEV__, isProd: !__DEV__ }),
     output: { // 输出的目录和文件名
         path: BUILD_PATH,
         filename: !__DEV__ ? `${jsPrefixPath}/[name].bundle.min.js` : `${jsPrefixPath}/[name].bundle.js`,
@@ -28,14 +28,14 @@ module.exports = {
         ],
         enforceExtension: false,
         extensions: ['.ts', '.tsx', '.js', '.json', '.less'], // require的时候可以直接使用require('file')，不用require('file.js')
-        alias: configs.alias.get()
+        alias: configs.alias.get({ isDev: __DEV__, isProd: !__DEV__ })
     },
     module: {
         //noParse 配置用来配置哪些脚本不需要webpack转译
         // noParse: /node_modules\/(react)/,
-        rules: configs.rules.get({ isDev: __DEV__ })
+        rules: configs.rules.get({ isDev: __DEV__, isProd: !__DEV__ })
     },
-    plugins: configs.plugins.get({ isDev: __DEV__ }),
+    plugins: configs.plugins.get({ isDev: __DEV__, isProd: !__DEV__ }),
     node: {
         global: true,
         crypto: 'empty',
