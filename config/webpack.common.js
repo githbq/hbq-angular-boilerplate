@@ -412,5 +412,5 @@ module.exports = function(options) {
             setImmediate: false
         }
 
-    };
+      };
 }
