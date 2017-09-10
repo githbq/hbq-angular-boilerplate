@@ -83,12 +83,12 @@ module.exports = [
      */
     new NormalModuleReplacementPlugin(
         /(angular2|@angularclass)((\\|\/)|-)hmr/,
-        helpers.root('config/empty.js')
+        helpers.root('dev-config/empty.js')
     ),
 
     new NormalModuleReplacementPlugin(
         /zone\.js(\\|\/)dist(\\|\/)long-stack-trace-zone/,
-        helpers.root('config/empty.js')
+        helpers.root('dev-config/empty.js')
     ),
 
     new HashedModuleIdsPlugin(),
@@ -100,7 +100,7 @@ module.exports = [
     (METADATA.AOT ? (
         new NormalModuleReplacementPlugin(
             /@angular(\\|\/)compiler/,
-            helpers.root('config/empty.js')
+            helpers.root('dev-config/empty.js')
         )
     ) : (new LoaderOptionsPlugin({}))),
 

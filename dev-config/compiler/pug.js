@@ -2,7 +2,7 @@ const fs = require('fs')
 const pug = require('pug')
 const pathTool = require('path')
 module.exports = {
-    compile(filePath, data, options, showLog = true) {
+    compile(filePath, data, options, showLog = false) {
         filePath = pathTool.join.apply(pathTool, [].concat(filePath))
         const pugStr = fs.readFileSync(filePath, 'utf-8')
         showLog && console.log(`pug:${pugStr}++++++++++++++++++++++++`, pugStr)
