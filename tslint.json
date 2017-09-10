@@ -29,7 +29,7 @@
         "use-life-cycle-interface": true,
         "use-output-property-decorator": true,
         "use-pipe-transform-interface": true,
-        "semicolon": [true, "never"],
+        // "semicolon": [true, "never"],
         // General
         "no-console": [true,
             "time",
