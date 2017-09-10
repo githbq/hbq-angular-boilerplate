@@ -1,10 +1,10 @@
 const pathTool = require('path')
-const pug = require('pug')
+const pug = require('../../compiler/pug')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const { TEMPLATE_PATH, METADATA, TEMPLATE_PATH_PUG, root } = require('../constants')
 module.exports = function createHtmlPlugin(name, templateUrl = null) {
-    const chunks = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"]
+    const chunks = ['inline', 'polyfills', 'sw-register', 'styles', 'vendor', 'main']
     templateUrl = templateUrl || TEMPLATE_PATH_PUG
     const data = {
         title: METADATA.title,
@@ -17,14 +17,6 @@ module.exports = function createHtmlPlugin(name, templateUrl = null) {
         templateContent = pug.compile(templateUrl, data)
             //如果有templateContent 则不能有templateUrl 会有冲突
         templateUrl = null
-    }
-    for (let i = 0; i < 10; i++) {
-        console.log(`-------------------------------------`)
-    }
-    console.log(`templateUrl`, templateUrl)
-    console.log(`templateContent`, templateContent)
-    for (let i = 0; i < 10; i++) {
-        console.log(`-------------------------------------`)
     }
     // 生成html文件
     return new HtmlWebpackPlugin({
