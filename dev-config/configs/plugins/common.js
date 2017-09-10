@@ -9,7 +9,7 @@ const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
-const HtmlElementsPlugin = require('./html-elements-plugin');
+const HtmlElementsPlugin = require('../../html-elements-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
@@ -18,7 +18,7 @@ const ngcWebpack = require('ngc-webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 //const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
-
+const helpers = require('../constants')
 const plugins = [
     new CompressionPlugin({
         asset: "[path].gz[query]",
@@ -101,11 +101,9 @@ const plugins = [
      * See: https://www.npmjs.com/package/copy-webpack-plugin
      */
     new CopyWebpackPlugin([
-            { from: 'src/assets', to: 'assets' },
-            { from: 'src/meta' }
-        ],
-        isProd ? { ignore: ['mock-data/**/*'] } : undefined
-    ),
+        { from: 'src/assets', to: 'assets' },
+        { from: 'src/meta' }
+    ], !helpers.__DEV__ ? { ignore: ['mock-data/**/*'] } : undefined),
 
     /*
      * Plugin: PreloadWebpackPlugin
@@ -136,12 +134,12 @@ const plugins = [
      */
     new HtmlWebpackPlugin({
         template: 'src/index.html',
-        title: METADATA.title,
+        title: helpers.METADATA.title,
         chunksSortMode: function(a, b) {
             const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"];
             return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0]);
         },
-        metadata: METADATA,
+        metadata: helpers.METADATA,
         inject: 'body'
     }),
 
@@ -182,7 +180,7 @@ const plugins = [
      * Dependencies: HtmlWebpackPlugin
      */
     new HtmlElementsPlugin({
-        headTags: require('./head-config.common')
+        headTags: require('../head-config.common')
     }),
 
     /**
@@ -200,7 +198,7 @@ const plugins = [
          * The state can not change after initializing the plugin.
          * @default true
          */
-        disabled: !AOT,
+        disabled: !helpers.AOT,
         tsConfig: helpers.root('tsconfig.webpack.json'),
     }),
 
@@ -212,4 +210,4 @@ const plugins = [
      */
     new InlineManifestWebpackPlugin(),
 ]
-modules.exports = plugins
+module.exports = plugins

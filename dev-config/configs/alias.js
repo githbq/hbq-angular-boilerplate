@@ -1,7 +1,9 @@
 /**
  * 别名配置
  */
-let { APP_PATH } = require('./constants')
-module.exports = {
-    '@': APP_PATH,
+const { APP_PATH } = require('./constants')
+module.exports.get = () => {
+    return {
+        '@': APP_PATH,
+    }
 }
