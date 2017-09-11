@@ -1,12 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
+import { NgModule } from '@angular/core'
+import { RouterModule } from '@angular/router'
 
-import { routes } from './child-detail.routes';
-import { ChildDetailComponent } from './child-detail.component';
+import { routes } from './child-detail.routes'
+import { ChildDetailComponent } from './child-detail.component'
 
-console.log('`ChildDetail` bundle loaded asynchronously');
+console.log('`ChildDetail` bundle loaded asynchronously')
 
 @NgModule({
   declarations: [
@@ -22,5 +22,5 @@ console.log('`ChildDetail` bundle loaded asynchronously');
   ],
 })
 export class ChildDetailModule {
-  public static routes = routes;
+  public static routes = routes
 }

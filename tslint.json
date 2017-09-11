@@ -6,6 +6,7 @@
         "node_modules/codelyzer"
     ],
     "rules": {
+        "no-trailing-whitespace": false,
         // Custom
         "trailing-comma": [false, { "multiline": "always", "singleline": "never" }],
         "interface-name": [false, "always-prefix"],
@@ -29,7 +30,7 @@
         "use-life-cycle-interface": true,
         "use-output-property-decorator": true,
         "use-pipe-transform-interface": true,
-        // "semicolon": [true, "never"],
+        "semicolon": [true, "never"],
         // General
         "no-console": [true,
             "time",

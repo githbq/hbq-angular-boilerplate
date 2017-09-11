@@ -1,11 +1,11 @@
 import {
   Component,
   OnInit
-} from '@angular/core';
+} from '@angular/core'
 
-import { AppState } from '../app.service';
-import { Title } from './title';
-import { XLargeDirective } from './x-large';
+import { AppState } from '../app.service'
+import { Title } from './title'
+import { XLargeDirective } from './x-large'
 
 @Component({
   /**
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   /**
    * Set our default values
    */
-  public localState = { value: '' };
+  public localState = { value: '' }
   /**
    * TypeScript public modifiers
    */
@@ -43,15 +43,15 @@ export class HomeComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    console.log('hello `Home` component');
+    console.log('hello `Home` component')
     /**
-     * this.title.getData().subscribe(data => this.data = data);
+     * this.title.getData().subscribe(data => this.data = data)
      */
   }
 
   public submitState(value: string) {
-    console.log('submitState', value);
-    this.appState.set('value', value);
-    this.localState.value = '';
+    console.log('submitState', value)
+    this.appState.set('value', value)
+    this.localState.value = ''
   }
 }

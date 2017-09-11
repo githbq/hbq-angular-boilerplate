@@ -1,8 +1,8 @@
 import {
   Component,
   OnInit
-} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+} from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'about',
@@ -24,7 +24,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AboutComponent implements OnInit {
 
-  public localState: any;
+  public localState: any
   constructor(
     public route: ActivatedRoute
   ) {}
@@ -36,17 +36,17 @@ export class AboutComponent implements OnInit {
         /**
          * Your resolved data from route.
          */
-        this.localState = data.yourData;
-      });
+        this.localState = data.yourData
+      })
 
-    console.log('hello `About` component');
+    console.log('hello `About` component')
     /**
      * static data that is bundled
-     * var mockData = require('assets/mock-data/mock-data.json');
-     * console.log('mockData', mockData);
+     * var mockData = require('assets/mock-data/mock-data.json')
+     * console.log('mockData', mockData)
      * if you're working with mock data you can also use http.get('assets/mock-data/mock-data.json')
      */
-    this.asyncDataWithWebpack();
+    this.asyncDataWithWebpack()
   }
   private asyncDataWithWebpack() {
     /**
@@ -58,11 +58,11 @@ export class AboutComponent implements OnInit {
 
       System.import('../../assets/mock-data/mock-data.json')
         .then((json) => {
-          console.log('async mockData', json);
-          this.localState = json;
-        });
+          console.log('async mockData', json)
+          this.localState = json
+        })
 
-    });
+    })
   }
 
 }
