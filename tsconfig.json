@@ -1,53 +1,54 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "allowSyntheticDefaultImports": true,
-        "sourceMap": true,
-        "noEmit": true,
-        "noEmitHelpers": true,
-        "importHelpers": true,
-        "strictNullChecks": false,
-        "lib": [
-            "dom",
-            "es6"
-        ],
-        "paths": {
-            "@angular/*": ["node_modules/@angular/*"]
-        },
-        "typeRoots": [
-            "node_modules/@types"
-        ],
-        "types": [
-            "hammerjs",
-            "jasmine",
-            "node",
-            "source-map",
-            "uglify-js",
-            "webpack"
-        ],
-        "rootDir": "./src",
-        "baseUrl": "./"
-    },
-    "exclude": [
-        "**/*.test.ts",
-        "**/*.spec.ts",
-        "temp",
-        "build",
-        "node_modules",
-        "dist",
-        "compiled"
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "noEmit": true,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "strictNullChecks": false,
+    "lib": [
+      "dom",
+      "es6"
     ],
-    "awesomeTypescriptLoaderOptions": {
-        "forkChecker": true,
-        "useWebpackText": true
+    "paths": {
+      "@angular/*": ["node_modules/@angular/*"]
     },
-    "compileOnSave": false,
-    "buildOnSave": false,
-    "atom": {
-        "rewriteTsconfig": false
-    }
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "rxjs",
+      "hammerjs",
+      "jasmine",
+      "node",
+      "source-map",
+      "uglify-js",
+      "webpack"
+    ],
+    "rootDir": "./src",
+    "baseUrl": "./"
+  },
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "temp",
+    "build",
+    "node_modules",
+    "dist",
+    "compiled"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }
