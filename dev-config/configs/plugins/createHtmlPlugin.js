@@ -7,14 +7,16 @@ module.exports = function createHtmlPlugin(name, templateUrl = null) {
     const chunks = ['inline', 'polyfills', 'sw-register', 'styles', 'vendor', 'main']
     templateUrl = templateUrl || TEMPLATE_PATH_PUG
     const data = {
-        title: METADATA.title,
-        __DEV__: METADATA.__DEV__,
-        favIcon: METADATA.favicon,
+        ...METADATA
     }
     let templateContent = undefined
     if (templateUrl && /.pug$/.test(templateUrl)) {
         templateUrl = pathTool.isAbsolute(templateUrl) ? templateUrl : root(templateUrl)
-        templateContent = pug.compile(templateUrl, data)
+        const filePath = templateUrl
+        templateContent = function(templateParams, compilation, callback) {
+                const result = pug.compile(filePath, {...templateParams, data })
+                return result
+            }
             //如果有templateContent 则不能有templateUrl 会有冲突
         templateUrl = null
     }
