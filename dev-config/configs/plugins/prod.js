@@ -31,7 +31,7 @@ module.exports = [
      *
      * See: https://github.com/webpack/extract-text-webpack-plugin
      */
-    new ExtractTextPlugin('[name].[contenthash].css'),
+    new ExtractTextPlugin('css/[name].[contenthash:8].css'),
 
     /**
      * Plugin: DefinePlugin
