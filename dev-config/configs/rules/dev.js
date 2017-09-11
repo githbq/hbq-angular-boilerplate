@@ -5,8 +5,8 @@ module.exports = [{
         include: [helpers.root('src', 'styles')]
     },
     {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.(less|styl)$/,
+        use: ['style-loader', 'css-loader', 'less-loader', 'stylus-loader'],
         include: [helpers.root('src', 'styles')]
     }
 ]

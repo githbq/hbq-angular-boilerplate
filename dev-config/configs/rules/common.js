@@ -34,8 +34,8 @@ module.exports = [{
         exclude: [helpers.root('src', 'styles')]
     },
     {
-        test: /\.scss$/,
-        use: ['to-string-loader', 'css-loader', 'sass-loader'],
+        test: /\.(less|styl)$/,
+        use: ['to-string-loader', 'css-loader', 'less-loader','stylus-loader'],
         exclude: [helpers.root('src', 'styles')]
     },
     {

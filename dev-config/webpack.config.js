@@ -27,7 +27,7 @@ module.exports = {
             'node_modules'
         ],
         enforceExtension: false,
-        extensions: ['.ts', '.tsx', '.js', '.json', '.less'], // require的时候可以直接使用require('file')，不用require('file.js')
+        extensions: ['.ts', '.tsx', '.js', '.json','styl', '.less'], // require的时候可以直接使用require('file')，不用require('file.js')
         alias: configs.alias.get({ isDev: __DEV__, isProd: !__DEV__ })
     },
     module: {

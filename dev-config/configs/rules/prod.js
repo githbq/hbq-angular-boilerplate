@@ -9,10 +9,10 @@ module.exports = [{
         include: [helpers.root('src', 'styles')]
     },
     {
-        test: /\.scss$/,
+        test: /\.(less|styl)$/,
         loader: ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            use: 'css-loader!sass-loader'
+            use: 'css-loader!less-loader!stylus-loader'
         }),
         include: [helpers.root('src', 'styles')]
     }
