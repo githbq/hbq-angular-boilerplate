@@ -9,8 +9,7 @@ const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenat
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
 
-const helpers = require('../constants')
-const { METADATA } = helpers
+const { METADATA, ...constants } = require('../constants')
 module.exports = [
 
   new ModuleConcatenationPlugin(),
@@ -36,9 +35,9 @@ module.exports = [
   /**
    * Plugin: DefinePlugin
    * Description: Define free variables.
-   * Useful for having development builds with debug logging or adding global helpers.
+   * Useful for having development builds with debug logging or adding global constants.
    *
-   * Environment helpers
+   * Environment constants
    *
    * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
    */
@@ -83,12 +82,12 @@ module.exports = [
    */
   new NormalModuleReplacementPlugin(
     /(angular2|@angularclass)((\\|\/)|-)hmr/,
-    helpers.root('dev-config/empty.js')
+    constants.root('dev-config/empty.js')
   ),
 
   new NormalModuleReplacementPlugin(
     /zone\.js(\\|\/)dist(\\|\/)long-stack-trace-zone/,
-    helpers.root('dev-config/empty.js')
+    constants.root('dev-config/empty.js')
   ),
 
   new HashedModuleIdsPlugin(),
@@ -100,7 +99,7 @@ module.exports = [
   (METADATA.AOT ? (
     new NormalModuleReplacementPlugin(
       /@angular(\\|\/)compiler/,
-      helpers.root('dev-config/empty.js')
+      constants.root('dev-config/empty.js')
     )
   ) : (new LoaderOptionsPlugin({}))),
 
