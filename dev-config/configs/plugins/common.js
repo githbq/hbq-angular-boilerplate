@@ -16,11 +16,13 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const ngcWebpack = require('ngc-webpack')
 const CompressionPlugin = require('compression-webpack-plugin')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 //const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
 const { METADATA, ...constants } = require('../constants')
 const { getHtmlPlugins } = require('./getHtmlPlugins')
 const plugins = [
+  new FriendlyErrorsWebpackPlugin(),
   new CompressionPlugin({
     asset: "[path].gz[query]",
     algorithm: "gzip",
