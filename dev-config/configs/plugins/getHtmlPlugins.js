@@ -36,9 +36,14 @@ function createHtmlPlugin(name, isDev, templateUrl = null) {
       hash: true, // 引入js/css的时候加个hash, 防止cdn的缓存问题
     } : {}),
     filename: `${name}.html`,
-    // template: templateUrl,
+    ...(templateUrl ?
+      {
+        template: templateUrl
+      }
+      : {}
+    ),
     templateContent,
-    templateUrl,
+
     inject: 'body',
     chunks: chunks.concat(name), //选定需要插入的chunk名,
     chunksSortMode: 'dependency',
