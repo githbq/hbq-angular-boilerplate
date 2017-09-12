@@ -19,7 +19,7 @@ const CompressionPlugin = require('compression-webpack-plugin')
 //const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
 const { METADATA, ...constants } = require('../constants')
-const createHtmlPlugin = require('./createHtmlPlugin')
+const { getHtmlPlugins } = require('./getHtmlPlugins')
 const plugins = [
   new CompressionPlugin({
     asset: "[path].gz[query]",
@@ -59,7 +59,7 @@ const plugins = [
    */
   // new CommonsChunkPlugin({
   //   name: 'vendor',
-  //   chunks: ['main'],
+  //   chunks: ['index'],
   //   minChunks: module => /node_modules/.test(module.resource)
   // }),
   /**
@@ -116,7 +116,7 @@ const plugins = [
   //new PreloadWebpackPlugin({
   //  rel: 'preload',
   //  as: 'script',
-  //  include: ['polyfills', 'vendor', 'main'].reverse(),
+  //  include: ['polyfills', 'vendor', 'index'].reverse(),
   //  fileBlacklist: ['.css', '.map']
   //}),
   //new PreloadWebpackPlugin({
@@ -137,13 +137,13 @@ const plugins = [
   //     template: 'src/index.html',
   //     title: constants.METADATA.title,
   //     chunksSortMode: function(a, b) {
-  //         const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"]
+  //         const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "index"]
   //         return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0])
   //     },
   //     metadata: constants.METADATA,
   //     inject: 'body'
   // }),
-  createHtmlPlugin('index'),
+  ...getHtmlPlugins(METADATA.__DEV__),
   /**
    * Plugin: ScriptExtHtmlWebpackPlugin
    * Description: Enhances html-webpack-plugin functionality
@@ -154,7 +154,7 @@ const plugins = [
   new ScriptExtHtmlWebpackPlugin({
     sync: /polyfills|vendor/,
     defaultAttribute: 'async',
-    preload: [/polyfills|vendor|main/],
+    preload: [/polyfills|vendor|index/],
     prefetch: [/chunk/]
   }),
 
