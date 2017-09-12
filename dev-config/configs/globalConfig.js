@@ -4,7 +4,7 @@
 const pathTool = require('path')
 
 function isWebpackDevServer() {
-    return process.argv[1] && !!(/webpack-dev-server/.exec(process.argv[1]));
+    return process.argv[1] && !!(/webpack-dev-server/.exec(process.argv[1]))
 }
 module.exports = {
     baseUrl: '/',

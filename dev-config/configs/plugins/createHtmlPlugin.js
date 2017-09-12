@@ -1,5 +1,5 @@
 const pathTool = require('path')
-const pug = require('../../compiler/pug')
+const pug = require('../../templateCompilers/pug')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const { TEMPLATE_PATH, METADATA, TEMPLATE_PATH_PUG, root } = require('../constants')
