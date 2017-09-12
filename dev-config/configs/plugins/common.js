@@ -18,7 +18,7 @@ const ngcWebpack = require('ngc-webpack')
 const CompressionPlugin = require('compression-webpack-plugin')
     //const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
-const helpers = require('../constants')
+const constants = require('../constants')
 const createHtmlPlugin = require('./createHtmlPlugin')
 const plugins = [
     new CompressionPlugin({
@@ -30,7 +30,7 @@ const plugins = [
     }),
     // Use for DLLs
     // new AssetsPlugin({
-    //   path: helpers.root('dist'),
+    //   path: constants.root('dist'),
     //   filename: 'webpack-assets.json',
     //   prettyPrint: true
     // }),
@@ -85,7 +85,7 @@ const plugins = [
          * The (\\|\/) piece accounts for path separators in *nix and Windows
          */
         /(.+)?angular(\\|\/)core(.+)?/,
-        helpers.root('src'), // location of your src
+        constants.root('src'), // location of your src
         {
             /**
              * Your Angular Async Route paths relative to this root directory
@@ -104,7 +104,7 @@ const plugins = [
     new CopyWebpackPlugin([
         { from: 'src/assets', to: 'assets' },
         { from: 'src/meta' }
-    ], !helpers.__DEV__ ? { ignore: ['mock-data/**/*'] } : undefined),
+    ], !constants.__DEV__ ? { ignore: ['mock-data/**/*'] } : undefined),
 
     /*
      * Plugin: PreloadWebpackPlugin
@@ -135,12 +135,12 @@ const plugins = [
      */
     // new HtmlWebpackPlugin({
     //     template: 'src/index.html',
-    //     title: helpers.METADATA.title,
+    //     title: constants.METADATA.title,
     //     chunksSortMode: function(a, b) {
     //         const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"]
     //         return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0])
     //     },
-    //     metadata: helpers.METADATA,
+    //     metadata: constants.METADATA,
     //     inject: 'body'
     // }),
     createHtmlPlugin('index'),
@@ -199,8 +199,8 @@ const plugins = [
          * The state can not change after initializing the plugin.
          * @default true
          */
-        disabled: !helpers.AOT,
-        tsConfig: helpers.root('tsconfig.webpack.json'),
+        disabled: !constants.AOT,
+        tsConfig: constants.root('tsconfig.webpack.json'),
     }),
 
     /**

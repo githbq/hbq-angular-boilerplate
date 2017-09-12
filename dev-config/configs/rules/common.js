@@ -1,4 +1,4 @@
-const helpers = require('../constants')
+const constants = require('../constants')
 module.exports = [{
         test: /\.ts$/,
         use: [{
@@ -6,20 +6,20 @@ module.exports = [{
                 options: {
                     loader: 'async-import',
                     genDir: 'compiled',
-                    aot: helpers.AOT
+                    aot: constants.AOT
                 }
             },
             {
                 loader: 'awesome-typescript-loader',
                 options: {
                     configFileName: 'tsconfig.webpack.json',
-                    useCache: helpers.__DEV__
+                    useCache: constants.__DEV__
                 }
             },
             {
                 loader: 'ngc-webpack',
                 options: {
-                    disable: !helpers.AOT,
+                    disable: !constants.AOT,
                 }
             },
             {
@@ -31,17 +31,17 @@ module.exports = [{
     {
         test: /\.css$/,
         use: ['to-string-loader', 'css-loader'],
-        exclude: [helpers.root('src', 'styles')]
+        exclude: [constants.root('src', 'styles')]
     },
     {
         test: /\.(less|styl)$/,
         use: ['to-string-loader', 'css-loader', 'less-loader','stylus-loader'],
-        exclude: [helpers.root('src', 'styles')]
+        exclude: [constants.root('src', 'styles')]
     },
     {
         test: /\.html$/,
         use: 'raw-loader',
-        exclude: [helpers.root('src/index.html')]
+        exclude: [constants.root('src/index.html')]
     },
     {
         test: /\.(jpg|png|gif)$/,

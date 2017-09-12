@@ -1,12 +1,12 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const helpers = require('../constants')
+const constants = require('../constants')
 module.exports = [{
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: 'css-loader'
         }),
-        include: [helpers.root('src', 'styles')]
+        include: [constants.root('src', 'styles')]
     },
     {
         test: /\.(less|styl)$/,
@@ -14,6 +14,6 @@ module.exports = [{
             fallback: 'style-loader',
             use: 'css-loader!less-loader!stylus-loader'
         }),
-        include: [helpers.root('src', 'styles')]
+        include: [constants.root('src', 'styles')]
     }
 ]

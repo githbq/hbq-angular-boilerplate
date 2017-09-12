@@ -11,7 +11,7 @@ module.exports = [
      * Description: Define free variables.
      * Useful for having development builds with debug logging or adding global constants.
      *
-     * Environment helpers
+     * Environment constants
      *
      * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
      *
@@ -50,7 +50,7 @@ module.exports = [
     //       'rxjs',
     //     ]
     //   },
-    //   dllDir: helpers.root('dll'),
+    //   dllDir: constants.root('dll'),
     //   webpackConfig: webpackMergeDll(commonConfig({env: ENV}), {
     //     devtool: 'cheap-module-source-map',
     //     plugins: []
@@ -66,8 +66,8 @@ module.exports = [
      * See: https://github.com/SimenB/add-asset-html-webpack-plugin
      */
     // new AddAssetHtmlPlugin([
-    //   { filepath: helpers.root(`dll/${DllBundlesPlugin.resolveFile('polyfills')}`) },
-    //   { filepath: helpers.root(`dll/${DllBundlesPlugin.resolveFile('vendor')}`) }
+    //   { filepath: constants.root(`dll/${DllBundlesPlugin.resolveFile('polyfills')}`) },
+    //   { filepath: constants.root(`dll/${DllBundlesPlugin.resolveFile('vendor')}`) }
     // ]),
 
     /**
