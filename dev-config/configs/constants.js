@@ -7,6 +7,8 @@ const ROOT_PATH = pathTool.resolve(__dirname, '..', '..')
 const root = pathTool.join.bind(pathTool, ROOT_PATH);
 //前端目录
 const APP_PATH = root('src') // __dirname 中的src目录，以此类推
+//多页面目录
+const APPS_PATH = root('src', 'apps')
 //构建生成目录
 const BUILD_PATH = root('dist')
 //资源URL前缀
@@ -31,4 +33,4 @@ const METADATA = {
   ...require('./globalConfig')
 }
 
-module.exports = { root, NODE_ENV, __DEV__, AOT, METADATA, TEMPLATE_PATH_PUG, TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH }
+module.exports = { root, APPS_PATH, NODE_ENV, __DEV__, AOT, METADATA, TEMPLATE_PATH_PUG, TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH }

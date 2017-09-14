@@ -51,6 +51,7 @@ apps.forEach(n => {
 })
 console.log('entryObject', color.green(JSON.stringify(entryObject)))
 module.exports = {
+  templateObject,
   regTemplate,
   templateSuffix,
   get: ({ isDev, isCommon = true, isProd } = {}) => {
