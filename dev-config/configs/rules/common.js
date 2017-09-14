@@ -54,12 +54,29 @@ module.exports = [
     use: 'raw-loader',
     exclude: [constants.root('src/index.html')]
   },
+  //files
   {
-    test: /\.(jpg|png|gif)$/,
-    use: 'file-loader'
+    test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+    loader: 'url-loader',
+    options: {
+      limit: 10000,
+      name: 'images/[name].[hash:7].[ext]'
+    }
   },
   {
-    test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
-    use: 'file-loader'
+    test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+    loader: 'url-loader',
+    options: {
+      limit: 10000,
+      name: 'media/[name].[hash:7].[ext]'
+    }
+  },
+  {
+    test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+    loader: 'url-loader',
+    options: {
+      limit: 10000,
+      name: 'fonts/[name].[hash:7].[ext]'
+    }
   }
 ]
