@@ -8,8 +8,9 @@ const pathTool = require('path')
 function isWebpackDevServer() {
   return process.argv[1] && !!(/webpack-dev-server/.exec(process.argv[1]))
 }
-// const htmlPaths = Object.keys(templateObject).map(n => srcRelative(templateObject[n]))
-
+// const htmlPaths = Object.keys(templateObject) .map(n =>
+//   srcRelative(templateObject[n]).replace('.pug', '.html')
+// )
 module.exports = {
   // htmlPaths: htmlPaths.filter(n => !/index\.(pug|html)/.test(n)),
   baseUrl: '/',
