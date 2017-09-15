@@ -1,6 +1,13 @@
 const constants = require('../constants')
 module.exports = [
   {
+    test: /\.pug$/,
+    loader: 'pug-loader',
+    options: {
+      pretty: true
+    }
+  },
+  {
     test: /\.ts$/,
     enforce: 'pre',
     loader: 'tslint-loader',

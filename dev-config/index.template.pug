@@ -1,10 +1,10 @@
 doctype html
 html
   head
-    title #{data.title}
-    if favIcon
-    link(rel="shorticon icon" type="image/x-icon" href=data.favIcon)
-    base(href=data.baseUrl)
+    title #{htmlWebpackPlugin.options.data.title}
+    if htmlWebpackPlugin.options.data.favIcon
+    link(rel="shorticon icon" type="image/x-icon" href=htmlWebpackPlugin.options.data.favIcon)
+    base(href=htmlWebpackPlugin.options.data.baseUrl)
     if webpackConfig.htmlElements.headTags
       // headTags
       != webpackConfig.htmlElements.headTags
@@ -13,9 +13,9 @@ html
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
-    if data.isWebpackDevServer
+    if htmlWebpackPlugin.options.data.isWebpackDevServer
       // devServer
       script(src="/webpack-dev-server.js")
   body
     app Loading...
-    div#root #{data.hello}
+    div#root #{htmlWebpackPlugin.options.data.hello}
