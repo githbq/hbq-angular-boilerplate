@@ -19,8 +19,9 @@ const CompressionPlugin = require('compression-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 //const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
-const { METADATA, ...constants } = require('../constants')
+const constants = require('../constants')
 const { getHtmlPlugins } = require('./getHtmlPlugins')
+const METADATA = require('../globalConfig')
 const plugins = [
   new FriendlyErrorsWebpackPlugin(),
   new CompressionPlugin({
@@ -137,12 +138,12 @@ const plugins = [
    */
   // new HtmlWebpackPlugin({
   //     template: 'src/index.html',
-  //     title: constants.METADATA.title,
+  //     title: METADATA.title,
   //     chunksSortMode: function(a, b) {
   //         const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "index"]
   //         return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0])
   //     },
-  //     metadata: constants.METADATA,
+  //     metadata: METADATA,
   //     inject: 'body'
   // }),
   ...getHtmlPlugins(METADATA.__DEV__),

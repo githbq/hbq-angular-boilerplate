@@ -9,7 +9,8 @@ const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenat
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
 
-const { METADATA, ...constants } = require('../constants')
+const constants = require('../constants')
+const METADATA = require('../globalConfig')
 module.exports = [
 
   new ModuleConcatenationPlugin(),

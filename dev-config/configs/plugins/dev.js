@@ -3,7 +3,8 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
-const { METADATA, ...constants } = require('../constants')
+const constants = require('../constants')
+const METADATA = require('../globalConfig')
 module.exports = [
 
   /**

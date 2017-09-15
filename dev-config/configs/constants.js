@@ -20,17 +20,9 @@ const __DEV__ = NODE_ENV === 'development'
 //模板地址
 const TEMPLATE_PATH = root('./dev-config/index.template.html')
 const TEMPLATE_PATH_PUG = root('dev-config/index.template.pug')
-const globalConfig = require('./globalConfig')
 
-const HMR = globalConfig.isWebpackDevServer
-const AOT = !globalConfig.isWebpackDevServer
-const METADATA = {
-  __DEV__,
-  HMR,
-  ENV: NODE_ENV,
-  NODE_ENV,
-  AOT,
-  ...require('./globalConfig')
-}
+const isWebpackDevServer = process.argv[1] && !!(/webpack-dev-server/.exec(process.argv[1]))
 
-module.exports = { root, APPS_PATH, NODE_ENV, __DEV__, AOT, METADATA, TEMPLATE_PATH_PUG, TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH }
+const HMR = isWebpackDevServer
+const AOT = !isWebpackDevServer
+module.exports = { root, isWebpackDevServer, APPS_PATH, NODE_ENV, __DEV__, AOT, TEMPLATE_PATH_PUG, TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH }

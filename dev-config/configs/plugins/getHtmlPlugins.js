@@ -1,7 +1,8 @@
 const pathTool = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const { TEMPLATE_PATH, METADATA, TEMPLATE_PATH_PUG, root } = require('../constants')
+const { TEMPLATE_PATH, TEMPLATE_PATH_PUG, root } = require('../constants')
+const METADATA = require('../globalConfig')
 //模板的后缀
 const { templateSuffix, regTemplate, ...entry } = require('../entry')
 //所有entry 包含模板
