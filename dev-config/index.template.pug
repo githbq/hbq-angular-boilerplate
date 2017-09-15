@@ -17,5 +17,5 @@ html
       // devServer
       script(src="/webpack-dev-server.js")
   body
-    app Loading...
+    app Loading... #{htmlWebpackPlugin.options.data.htmlPaths.length}
     div#root #{htmlWebpackPlugin.options.data.hello}
