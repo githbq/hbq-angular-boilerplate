@@ -15,8 +15,9 @@ module.exports = {
   entry: configs.entry.get({ isDev: __DEV__, isProd: !__DEV__ }).apps,
   output: { // 输出的目录和文件名
     path: BUILD_PATH,
-    filename: !__DEV__ ? `${jsPrefixPath}/[name].bundle.min.js` : `${jsPrefixPath}/[name].bundle.js`,
-    chunkFilename: `${jsPrefixPath}/[name].chunk.js`
+    filename: !__DEV__ ? `${jsPrefixPath}/[name].min.js` : `${jsPrefixPath}/[name].js`,
+    chunkFilename: `${jsPrefixPath}/[name].chunk.js`,
+    sourceMapFilename: 'maps/[file].map'
   },
   resolve: {
     modules: [
