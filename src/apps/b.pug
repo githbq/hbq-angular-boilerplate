@@ -2,8 +2,8 @@ doctype html
 html
   head
     title #{htmlWebpackPlugin.options.data.title}
-    if htmlWebpackPlugin.options.data.favIcon
-    link(rel="shorticon icon" type="image/x-icon" href=htmlWebpackPlugin.options.data.favIcon)
+    if htmlWebpackPlugin.options.data.favicon
+    link(rel="shorticon icon" type="image/x-icon" href=htmlWebpackPlugin.options.data.favicon)
     base(href=htmlWebpackPlugin.options.data.baseUrl)
     if webpackConfig.htmlElements.headTags
       // headTags
