@@ -20,11 +20,14 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 //const PreloadWebpackPlugin = require('preload-webpack-plugin')
 //add by hbq
 const ProgressPlugin = require('progress-webpack-plugin')
+//在 vscode 上显示webpack进度 需要在vscode上安装插件webpack-progress
+const BitBarWebpackProgressPlugin = require('bitbar-webpack-progress-plugin')
 
 const constants = require('../constants')
 const { getHtmlPlugins } = require('./getHtmlPlugins')
 const METADATA = require('../globalConfig')
 const plugins = [
+  new BitBarWebpackProgressPlugin(),
   new ProgressPlugin(true),
   new FriendlyErrorsWebpackPlugin(),
   new CompressionPlugin({
