@@ -18,11 +18,14 @@ const ngcWebpack = require('ngc-webpack')
 const CompressionPlugin = require('compression-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 //const PreloadWebpackPlugin = require('preload-webpack-plugin')
+//add by hbq
+const ProgressPlugin = require('progress-webpack-plugin')
 
 const constants = require('../constants')
 const { getHtmlPlugins } = require('./getHtmlPlugins')
 const METADATA = require('../globalConfig')
 const plugins = [
+  new ProgressPlugin(true),
   new FriendlyErrorsWebpackPlugin(),
   new CompressionPlugin({
     asset: "[path].gz[query]",
