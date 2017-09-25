@@ -12,9 +12,11 @@ module.exports.get = () => {
   return {
     // useLocalIp: true,
     openPage: 'index.html',
+    overlay: true,
+    host: '0.0.0.0',
     hot: true,
     open: true,
-    port: 7001,
+    port: Math.floor(Math.random() * 1001) + 7000,
     contentBase: BUILD_PATH,
     publicPath: PUBLIC_PATH,
     inline: true,
