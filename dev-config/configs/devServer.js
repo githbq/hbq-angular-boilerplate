@@ -10,7 +10,7 @@ const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, _
 //  , warn? }
 module.exports.get = () => {
   return {
-    // useLocalIp: true,
+    useLocalIp: true,
     openPage: 'index.html',
     overlay: true,
     host: '0.0.0.0',
