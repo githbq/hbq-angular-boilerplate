@@ -8,7 +8,7 @@ const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplaceme
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin
+const { CheckerPlugin } = require('awesome-typescript-loader')
 const HtmlElementsPlugin = require('../../html-elements-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
@@ -22,11 +22,14 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ProgressPlugin = require('progress-webpack-plugin')
 //在 vscode 上显示webpack进度 需要在vscode上安装插件webpack-progress
 const BitBarWebpackProgressPlugin = require('bitbar-webpack-progress-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+
 
 const constants = require('../constants')
 const { getHtmlPlugins } = require('./getHtmlPlugins')
 const METADATA = require('../globalConfig')
 const plugins = [
+  new CleanWebpackPlugin(['dist', 'build', 'compiled'], { root: constants.ROOT_PATH }),
   new BitBarWebpackProgressPlugin(),
   new ProgressPlugin(true),
   new FriendlyErrorsWebpackPlugin(),
